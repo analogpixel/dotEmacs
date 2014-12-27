@@ -4,7 +4,7 @@
 (package-initialize) 
 
 ;; install all the libs used if they aren't already there
-(dolist (lib '(cider ace-jump-mode magit expand-region quickrun yasnippet))
+(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet))
   (unless (package-installed-p lib) (progn
 				      (package-refresh-contents)
 				      (package-install lib) )))
@@ -105,5 +105,5 @@
 ;; enable snipits
 ;; https://github.com/capitaomorte/yasnippet
 (setq yas-snippet-dirs
-      '("~/emacs.d/snippets"))
+      '("~/.emacs.d/snippets/"))
 (yas-global-mode 1)
