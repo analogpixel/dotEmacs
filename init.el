@@ -107,3 +107,15 @@
 (setq yas-snippet-dirs
       '("~/.emacs.d/snippets/"))
 (yas-global-mode 1)
+
+
+;; spelling
+;; http://www.johndcook.com/blog/emacs_windows/#aspell
+;; http://aspell.net/win32/
+(setq-default ispell-program-name "C:/progra~2/Aspell/bin/aspell.exe")
+;;(setq text-mode-hook '(lambda() (flyspell-mode t) ))
+
+
+;; Various keyboard bindings
+(global-set-key (kbd "<end>") (lambda () (interactive) (end-of-buffer)))
+(global-set-key (kbd "<home>") (lambda () (interactive) (beginning-of-buffer)))
