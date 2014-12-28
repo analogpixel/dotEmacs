@@ -1,0 +1,5 @@
+#name : body element: ...
+# --
+BODY {
+     $0
+}

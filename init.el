@@ -115,7 +115,16 @@
 (setq-default ispell-program-name "C:/progra~2/Aspell/bin/aspell.exe")
 ;;(setq text-mode-hook '(lambda() (flyspell-mode t) ))
 
+;; create a macro that allow setting anonymous functions easier
+;; expands to (lambda () (interactive) (command))
+(defmacro ## (var) (list 'lambda '() '(interactive) var))
 
 ;; Various keyboard bindings
-(global-set-key (kbd "<end>") (lambda () (interactive) (end-of-buffer)))
-(global-set-key (kbd "<home>") (lambda () (interactive) (beginning-of-buffer)))
+(global-set-key (kbd "<end>")   (## (end-of-buffer)))
+(global-set-key (kbd "<home>")  (## (beginning-of-buffer)))
+(global-set-key (kbd "C-s")     (## (save-buffer)))
+(global-set-key (kbd "C-x C-s") (## (isearch-forward)))
+
+
+
+
