@@ -1,8 +1,6 @@
-# -*- mode: snippet -*-
-# name: try
-# key: try
-# --
+#name : try block : ...
+# ---
 try:
-    $1
-except ${2:Exception}:
     $0
+except Exception:
+    print(sys.exc_info() )

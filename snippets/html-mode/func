@@ -1,0 +1,6 @@
+#name : include src
+#group : script
+# --
+function $1($2) {
+$0
+}

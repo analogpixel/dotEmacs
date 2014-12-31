@@ -1,0 +1,4 @@
+#name : class def: ...
+# --
+def $1(self,$2):
+    $0

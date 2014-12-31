@@ -1,0 +1,4 @@
+#name : include src
+#group : script
+# --
+<script src="$0"></script>
