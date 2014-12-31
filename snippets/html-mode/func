@@ -1,4 +1,4 @@
-#name : include src
+#name : function
 #group : script
 # --
 function $1($2) {

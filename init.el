@@ -27,6 +27,7 @@
  '(inhibit-startup-screen t)
  '(tool-bar-mode nil)
  '(truncate-lines nil)
+ '(coffee-tab-width 2)
  )
 
 ;; set the windows size
@@ -34,6 +35,14 @@
 
 ;; show me where my parens don't add up
 (show-paren-mode t)
+
+;; configure tabs
+(setq indent-tabs-mode nil)
+(setq-default tab-width 2)
+(add-hook 'python-mode-hook (## (setq python-indent 2)))
+
+;; orgmode options
+(setq org-startup-folded "showall")
 
 ;; active Babel languages
 (org-babel-do-load-languages
