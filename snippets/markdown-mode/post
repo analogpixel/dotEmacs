@@ -1,0 +1,11 @@
+#name : Default post
+# --
+---
+layout: post
+title:  "$1"
+date:    $2 15:32:11
+categories: $3
+shortText: "$4"
+fontSize: "$5px"
+---
+$0

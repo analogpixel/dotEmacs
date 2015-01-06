@@ -2,10 +2,39 @@
 ;; expands to (lambda () (interactive) (command))
 (defmacro ## (var) (list 'lambda '() '(interactive) var))
 
+
+
+;; Configure per-OS stuff here
+(defun configureLinux () )
+
+(defun configureMac   () )
+
+(defun configureWindows ()
+	;; configure termainal to work
+	;;(setq explicit-shell-file-name "C:/cygwin64/bin/bash.exe")
+  ;;(setq shell-file-name "bash")
+  ;;(setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
+  ;;(setenv "SHELL" shell-file-name)
+  (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+
+	;; configure aspell to work
+	;; spelling
+	;; http://www.johndcook.com/blog/emacs_windows/#aspell
+	;; http://aspell.net/win32/
+	(setq-default ispell-program-name "C:/progra~2/Aspell/bin/aspell.exe")
+	)
+
+(cond ((string= system-type "windows-nt") (configureWindows))
+			((string= system-type "gnu/linux")  (configureLinux))
+			((string= system-type "darwin")     (configureMac))
+			)
+
+
+
 ;; load the package system so we can get new packages
 (require 'package)
 (add-to-list 'package-archives  '("melpa" . "http://melpa.org/packages/") t)
-(package-initialize) 
+(package-initialize)
 
 ;; install all the libs used if they aren't already there
 (dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm))
@@ -22,6 +51,10 @@
 (global-set-key (kbd "<f11>")  'bookmark-set)
 (global-set-key (kbd "<f1>")   'flyspell-buffer)
 
+
+(setq auto-revert-verbose nil)
+(global-set-key (kbd "<f2>")   'revert-buffer)
+
 (custom-set-variables
  '(custom-enabled-themes (quote (wombat)))
  '(inhibit-startup-screen t)
@@ -30,11 +63,19 @@
  '(coffee-tab-width 2)
  )
 
+;; when you highlight text, and type it'll delete it
+(delete-selection-mode 1)
+
 ;; set the windows size
 (when window-system (set-frame-size (selected-frame) 150 50))
 
 ;; show me where my parens don't add up
 (show-paren-mode t)
+
+;; show lines and cols
+(setq line-number-mode t)
+(setq column-number-mode t)
+(setq linenum-mode t)
 
 ;; configure tabs
 (setq indent-tabs-mode nil)
@@ -42,7 +83,9 @@
 (add-hook 'python-mode-hook (## (setq python-indent 2)))
 
 ;; orgmode options
+;; http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
 (setq org-startup-folded "showall")
+(setq org-log-done t) ;; when you close a task it time stampes it
 
 ;; active Babel languages
 (org-babel-do-load-languages
@@ -55,9 +98,26 @@
    (ruby . t)
    ))
 
+;; http://members.optusnet.com.au/~charles57/GTD/datetree.html
+;; http://orgmode.org/manual/Template-elements.html#Template-elements
+(setq org-capture-templates
+			(quote
+			 (
+				("j" "Journal" entry (file+datetree "c:/d/dropbox/j.org") "** %?")
+				)
+			 )
+			)
+
+;; create a journal entry
+(global-set-key (kbd "C-c C-j") (## (org-capture nil "j")))
+
 ;; disable backups
-(setq make-backup-files nil) 
+(setq make-backup-files nil)
 (setq auto-save-default nil)
+
+;;keep a list of recent files
+(recentf-mode 1)
+(global-set-key (kbd "<f9>") 'recentf-open-files)
 
 ;;
 ;;ace jump mode major function
@@ -72,9 +132,10 @@
   "ace-jump-mode"
   "Emacs quick move minor mode"
   t)
-(define-key global-map (kbd "C-1") 'ace-jump-mode)
-(define-key global-map (kbd "C-2") 'ace-jump-line-mode)
 
+(global-set-key (kbd "C-c z") 'ace-jump-mode)
+(global-set-key (kbd "C-c c") 'ace-jump-char-mode)
+(global-set-key (kbd "C-c x") 'ace-jump-line-mode)
 
 ;; expand region
 ;; continue to expand region until you have what you need
@@ -88,10 +149,7 @@
 (yas-global-mode 1)
 
 
-;; spelling
-;; http://www.johndcook.com/blog/emacs_windows/#aspell
-;; http://aspell.net/win32/
-(setq-default ispell-program-name "C:/progra~2/Aspell/bin/aspell.exe")
+
 
 ;; http://tuhdo.github.io/helm-intro.html
 (helm-mode t)
@@ -101,14 +159,19 @@
 (global-set-key (kbd "C-x C-b")     'helm-buffers-list)
 (global-set-key (kbd "C-x C-f")     'helm-find-files)
 (global-set-key (kbd "C-f")         'helm-occur)
-(global-set-key (kbd "C-c C-c")     'helm-colors)
+(global-set-key (kbd "C-c C-c")   'helm-colors)
 (global-set-key (kbd "C-c alc")     'helm-calcul-expression)
+(setq helm-buffers-fuzzy-matching t)
 
 
+(global-visual-line-mode 1)
+(setq-default fill-column 80  whitespace-line-column 80)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(setq show-paren-style 'expression)
 
+;;EOF
 
-
-
+;; set-buffer-file-coding-system  change from/dos/unix line endings
 
 ;; maybe this in the future
 ;; https://github.com/bbatsov/projectile
@@ -141,4 +204,3 @@
 ;;    +Capslock::Capslock ; make shift+Caps-Lock the Caps Lock toggle
 ;;    Capslock::Control   ; make Caps Lock the control button
 ;;    #IfWinActive        ; end if in emacs
-
