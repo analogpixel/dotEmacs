@@ -3,6 +3,10 @@
 (defmacro ## (var) (list 'lambda '() '(interactive) var))
 
 
+;; load paths
+(load "~/.emacs.d/elisp/toggleCase.el")
+(load "~/.emacs.d/elisp/lineup.el")
+
 
 ;; Configure per-OS stuff here
 (defun configureLinux () )
@@ -66,6 +70,13 @@
 ;; when you highlight text, and type it'll delete it
 (delete-selection-mode 1)
 
+;; toggle case
+(global-set-key (kbd "C-`") 'toggleCase)
+(global-set-key (kbd "C-1") 'toggleCaseWord)
+
+;; Align characters
+(global-set-key (kbd "C-+") 'lineup)
+
 ;; set the windows size
 (when window-system (set-frame-size (selected-frame) 150 50))
 
@@ -115,7 +126,7 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-;;keep a list of recent files
+;;keep a list of recent files history previous
 (recentf-mode 1)
 (global-set-key (kbd "<f9>") 'recentf-open-files)
 
@@ -149,7 +160,8 @@
 (yas-global-mode 1)
 
 
-
+(global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "C-x ;") 'comment-or-uncomment-region)
 
 ;; http://tuhdo.github.io/helm-intro.html
 (helm-mode t)
@@ -167,7 +179,7 @@
 (global-visual-line-mode 1)
 (setq-default fill-column 80  whitespace-line-column 80)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(setq show-paren-style 'expression)
+(setq show-paren-style 'parenthesis)
 
 ;;EOF
 
