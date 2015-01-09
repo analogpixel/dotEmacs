@@ -38,6 +38,8 @@
 ;; load the package system so we can get new packages
 (require 'package)
 (add-to-list 'package-archives  '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives  '("org" . "http://orgmode.org/elpa/") t)
+
 (package-initialize)
 
 ;; install all the libs used if they aren't already there
@@ -95,8 +97,11 @@
 
 ;; orgmode options
 ;; http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
+(require 'ox-md)
 (setq org-startup-folded "showall")
 (setq org-log-done t) ;; when you close a task it time stampes it
+(setq org-list-allow-alphabetical t)
+(setq org-timestamp-translate t)
 
 ;; active Babel languages
 (org-babel-do-load-languages
