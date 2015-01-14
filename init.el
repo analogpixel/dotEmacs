@@ -48,6 +48,10 @@
 				      (package-refresh-contents)
 				      (package-install lib) )))
 
+
+(setq nrepl-hide-special-buffers t)
+(setq cider-show-error-buffer nil)
+
 ;; Various keyboard bindings
 (global-set-key (kbd "<end>")   (## (end-of-buffer)))
 (global-set-key (kbd "<home>")  (## (beginning-of-buffer)))
@@ -94,6 +98,12 @@
 (setq indent-tabs-mode nil)
 (setq-default tab-width 2)
 (add-hook 'python-mode-hook (## (setq python-indent 2)))
+
+(defun timestamp ()
+   (interactive)
+   (insert (format-time-string "%Y-%m-%d %R")))
+
+(global-set-key (kbd "C-; d") 'timestamp)
 
 ;; orgmode options
 ;; http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
@@ -149,9 +159,9 @@
   "Emacs quick move minor mode"
   t)
 
-(global-set-key (kbd "C-c z") 'ace-jump-mode)
-(global-set-key (kbd "C-c c") 'ace-jump-char-mode)
-(global-set-key (kbd "C-c x") 'ace-jump-line-mode)
+(global-set-key (kbd "C-; C-l") 'ace-jump-mode)
+(global-set-key (kbd "C-; C-;") 'ace-jump-char-mode)
+(global-set-key (kbd "C-; C-'") 'ace-jump-line-mode)
 
 ;; expand region
 ;; continue to expand region until you have what you need
@@ -175,7 +185,7 @@
 (global-set-key (kbd "C-x b")       'helm-buffers-list)
 (global-set-key (kbd "C-x C-b")     'helm-buffers-list)
 (global-set-key (kbd "C-x C-f")     'helm-find-files)
-(global-set-key (kbd "C-f")         'helm-occur)
+(global-set-key (kbd "C-; C-f")         'helm-occur)
 (global-set-key (kbd "C-c C-c")   'helm-colors)
 (global-set-key (kbd "C-c alc")     'helm-calcul-expression)
 (setq helm-buffers-fuzzy-matching t)
