@@ -20,7 +20,7 @@
   ;;(setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
   ;;(setenv "SHELL" shell-file-name)
   (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
-
+	(setq gnugo-program "C:/bin/gnugo-3.8/gnugo.exe")
 	;; configure aspell to work
 	;; spelling
 	;; http://www.johndcook.com/blog/emacs_windows/#aspell
@@ -177,6 +177,7 @@
 
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "C-x ;") 'comment-or-uncomment-region)
+
 
 ;; http://tuhdo.github.io/helm-intro.html
 (helm-mode t)
