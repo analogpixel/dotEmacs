@@ -43,14 +43,21 @@
 (package-initialize)
 
 ;; install all the libs used if they aren't already there
-(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo))
+(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company))
   (unless (package-installed-p lib) (progn
 				      (package-refresh-contents)
 				      (package-install lib) )))
 
 
+;; cider configuration
 (setq nrepl-hide-special-buffers t)
 (setq cider-show-error-buffer nil)
+(add-hook 'cider-repl-mode-hook #'company-mode)
+(add-hook 'cider-mode-hook #'company-mode)
+(add-hook 'cider-repl-mode-hook #'paredit-mode)
+(add-hook 'cider-mode-hook #'paredit-mode)
+(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'cider-mode-hook #'rainbow-delimiters-mode)
 
 ;; Various keyboard bindings
 (global-set-key (kbd "<end>")   (## (end-of-buffer)))
