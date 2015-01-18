@@ -54,6 +54,7 @@
 ;; delete backwards
 (global-set-key (kbd "C-,") 'delete-backward-char)
 (global-set-key (kbd "M-,") 'backward-kill-word)
+;; C-Delete delete word forwards
 
 ;; magit configuration
 ;; for windows run: git config --global credential.helper wincred
