@@ -25,7 +25,10 @@
 	;; spelling
 	;; http://www.johndcook.com/blog/emacs_windows/#aspell
 	;; http://aspell.net/win32/
-	(setq-default ispell-program-name "C:/progra~2/Aspell/bin/aspell.exe")
+	(setq-default ispell-program-name "c:/progra~2/Aspell/bin/aspell.exe")
+	(setq processing-location "c:/bin/processing-2.2.1/processing-java.exe")
+	(setq processing-application-dir "c:/bin/processing-2.2.1")
+	(setq processing-sketchbook-dir "c:/data/processingSketches")
 	)
 
 (cond ((string= system-type "windows-nt") (configureWindows))
@@ -43,7 +46,7 @@
 (package-initialize)
 
 ;; install all the libs used if they aren't already there
-(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company))
+(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window))
   (unless (package-installed-p lib) (progn
 				      (package-refresh-contents)
 				      (package-install lib) )))
@@ -169,7 +172,7 @@
 (global-set-key (kbd "C-; C-l") 'ace-jump-mode)
 (global-set-key (kbd "C-; C-;") 'ace-jump-char-mode)
 (global-set-key (kbd "C-; C-'") 'ace-jump-line-mode)
-
+(global-set-key (kbd "M-p") 'ace-window)
 ;; expand region
 ;; continue to expand region until you have what you need
 (require 'expand-region)
