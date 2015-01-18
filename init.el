@@ -15,12 +15,11 @@
 
 (defun configureWindows ()
 	;; configure termainal to work
-	;;(setq explicit-shell-file-name "C:/cygwin64/bin/bash.exe")
-  ;;(setq shell-file-name "bash")
-  ;;(setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
-  ;;(setenv "SHELL" shell-file-name)
-  (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+	(setq explicit-shell-file-name "C:/Program Files (x86)/Git/bin/bash.exe")
+	(setq shell-file-name explicit-shell-file-name)
+	(add-to-list 'exec-path "C:/Program Files (x86)/Git/bin")
 	(setq gnugo-program "C:/bin/gnugo-3.8/gnugo.exe")
+
 	;; configure aspell to work
 	;; spelling
 	;; http://www.johndcook.com/blog/emacs_windows/#aspell
@@ -52,6 +51,9 @@
 				      (package-install lib) )))
 
 
+;; delete backwards
+(global-set-key (kbd "C-,") 'delete-backward-char)
+(global-set-key (kbd "M-,") 'backward-kill-word)
 
 ;; magit configuration
 ;; for windows run: git config --global credential.helper wincred
@@ -147,6 +149,7 @@
 				)
 			 )
 			)
+
 
 ;; create a journal entry
 (global-set-key (kbd "C-c C-j") (## (org-capture nil "j")))
