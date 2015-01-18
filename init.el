@@ -52,6 +52,10 @@
 				      (package-install lib) )))
 
 
+
+;; magit configuration
+;; for windows run: git config --global credential.helper wincred
+
 ;; cider configuration
 (setq nrepl-hide-special-buffers t)
 (setq cider-show-error-buffer nil)
