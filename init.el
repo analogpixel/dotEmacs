@@ -124,7 +124,7 @@
 
 ;; orgmode options
 ;; http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
-(require 'ox-md)
+; (require 'ox-md)
 (setq org-startup-folded "showall")
 (setq org-log-done t) ;; when you close a task it time stampes it
 (setq org-list-allow-alphabetical t)
