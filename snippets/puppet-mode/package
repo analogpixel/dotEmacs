@@ -1,5 +1,5 @@
 #name : package: ...
 # --
 package {"$1":
-$0S
+$0
 }

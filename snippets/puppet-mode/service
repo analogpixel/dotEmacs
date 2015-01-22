@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: service
+# key: service
+# binding: direct-keybinding
+# --
+service {"$1":
+				ensure => "running",
+				enable => "true",
+}

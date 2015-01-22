@@ -1,0 +1,9 @@
+#name :file: ...
+# --
+file {"$1":
+  source => "${2:puppet:///modules/$3/}",
+  ensure => file,
+  owner  => root,
+  group  => root,
+  mode   => 750,$0
+}

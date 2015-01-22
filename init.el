@@ -80,7 +80,12 @@
 
 
 (setq auto-revert-verbose nil)
-(global-set-key (kbd "<f2>")   'revert-buffer)
+
+
+(defun switch-to-previous-buffer ()
+      (interactive)
+      (switch-to-buffer (other-buffer (current-buffer) 1)))
+(global-set-key (kbd "<f2>")   'switch-to-previous-buffer)
 
 (custom-set-variables
  '(custom-enabled-themes (quote (wombat)))
@@ -188,6 +193,7 @@
 
 ;; enable snippets
 ;; https://github.com/capitaomorte/yasnippet
+;; http://capitaomorte.github.io/yasnippet/
 (setq yas-snippet-dirs
       '("~/.emacs.d/snippets/"))
 (yas-global-mode 1)
