@@ -5,7 +5,7 @@
 
 ;; load paths
 (load "~/.emacs.d/elisp/toggleCase.el")
-(load "~/.emacs.d/elisp/lineup.el")
+;; (load "~/.emacs.d/elisp/lineup.el")
 
 
 ;; Configure per-OS stuff here
@@ -50,6 +50,14 @@
 				      (package-refresh-contents)
 				      (package-install lib) )))
 
+
+;; Make sure all buffers save with unix line endings and not ^m
+(prefer-coding-system 'utf-8-unix)
+(set-default-coding-systems 'utf-8-unix)
+(set-terminal-coding-system 'utf-8-unix)
+(set-keyboard-coding-system 'utf-8-unix)
+(set-selection-coding-system 'utf-8-unix)
+(setq-default buffer-file-coding-system 'utf-8-unix)
 
 ;; delete backwards
 (global-set-key (kbd "C-,") 'delete-backward-char)
@@ -129,6 +137,7 @@
 
 ;; orgmode options
 ;; http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
+;; http://lists.gnu.org/archive/html/emacs-orgmode/2011-02/msg00465.html
 ; (require 'ox-md)
 (setq org-startup-folded "showall")
 (setq org-log-done t) ;; when you close a task it time stampes it
@@ -146,19 +155,6 @@
    (ruby . t)
    ))
 
-;; http://members.optusnet.com.au/~charles57/GTD/datetree.html
-;; http://orgmode.org/manual/Template-elements.html#Template-elements
-(setq org-capture-templates
-			(quote
-			 (
-				("j" "Journal" entry (file+datetree "c:/d/dropbox/j.org") "** %?")
-				)
-			 )
-			)
-
-
-;; create a journal entry
-(global-set-key (kbd "C-c C-j") (## (org-capture nil "j")))
 
 ;; disable backups
 (setq make-backup-files nil)
@@ -220,39 +216,3 @@
 (setq-default fill-column 80  whitespace-line-column 80)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq show-paren-style 'parenthesis)
-
-;;EOF
-
-;; set-buffer-file-coding-system  change from/dos/unix line endings
-
-;; maybe this in the future
-;; https://github.com/bbatsov/projectile
-
-;; quick run
-;; run the contents of the buffer
-;; https://github.com/syohex/emacs-quickrun
-;; (require 'quickrun)
-;; (global-set-key (kbd "<f12>") 'quickrun)
-
-;; remove to use helm
-;; (speedbar)
-;; (speedbar-toggle-show-all-files)
-;; (global-set-key (kbd "<f1>") 'speedbar-get-focus)
-;; set common speedbar paths, maybe save some typing
-;;(defun sb-sk (k)
-;;  (setq default-directory k)
-;;  (speedbar-update-contents)
-;;  (speedbar-get-focus)
-;;  )
-;; (global-set-key (kbd "C-c C-1") (lambda () (interactive) (sb-sk "c:/users/analog/Desktop/") ))
-;; (global-set-key (kbd "C-c C-2") (lambda () (interactive) (sb-sk "c:/users/analog/Dropbox/") ))
-
-;; turn capslock into ctrl
-;; install AutoHotkey
-;; Save this to script.ahk
-;; double click to install
-;;
-;; #IfWinActive emacs  ; if in emacs
-;;    +Capslock::Capslock ; make shift+Caps-Lock the Caps Lock toggle
-;;    Capslock::Control   ; make Caps Lock the control button
-;;    #IfWinActive        ; end if in emacs
