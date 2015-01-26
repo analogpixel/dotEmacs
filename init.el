@@ -39,8 +39,9 @@
 
 ;; load the package system so we can get new packages
 (require 'package)
-(add-to-list 'package-archives  '("melpa" . "http://melpa.org/packages/") t)
-(add-to-list 'package-archives  '("org" . "http://orgmode.org/elpa/") t)
+(setq package-archives  '( ("melpa" . "http://melpa.org/packages/")
+                            ("org" . "http://orgmode.org/elpa/")
+														))
 
 (package-initialize)
 
@@ -138,7 +139,9 @@
 ;; orgmode options
 ;; http://orgmode.org/worg/org-tutorials/orgtutorial_dto.html
 ;; http://lists.gnu.org/archive/html/emacs-orgmode/2011-02/msg00465.html
-; (require 'ox-md)
+
+(require 'ox-md)
+(require 'ox-odt)
 (setq org-startup-folded "showall")
 (setq org-log-done t) ;; when you close a task it time stampes it
 (setq org-list-allow-alphabetical t)
@@ -196,8 +199,7 @@
 
 
 (global-set-key (kbd "C-z") 'undo)
-(global-set-key (kbd "C-x ;") 'comment-or-uncomment-region)
-
+;; M-; will comment/uncomment a selected region
 
 ;; http://tuhdo.github.io/helm-intro.html
 (helm-mode t)
