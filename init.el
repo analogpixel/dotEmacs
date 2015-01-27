@@ -156,6 +156,7 @@
    (clojure . t)
    (sh . t)
    (ruby . t)
+	 (ditaa . t)
    ))
 
 
