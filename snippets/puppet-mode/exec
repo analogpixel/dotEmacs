@@ -1,0 +1,12 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: exec
+# key: exec
+# binding: direct-keybinding
+# --
+exec {'$1':
+  command     => $2,
+	creates     => $3,
+	path        => ["/bin","/usr/bin","/sbin","/usr/sbin"],
+	refreshonly => true,
+  $0
+	}

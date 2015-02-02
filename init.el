@@ -46,7 +46,7 @@
 (package-initialize)
 
 ;; install all the libs used if they aren't already there
-(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window))
+(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window logstash-conf multiple-cursors helm-swoop))
   (unless (package-installed-p lib) (progn
 				      (package-refresh-contents)
 				      (package-install lib) )))
@@ -64,6 +64,16 @@
 (global-set-key (kbd "C-,") 'delete-backward-char)
 (global-set-key (kbd "M-,") 'backward-kill-word)
 ;; C-Delete delete word forwards
+
+;; Logstash conf mode configuration
+(setq logstash-indent 2)
+
+;; multiple cursors setup
+;; https://github.com/magnars/multiple-cursors.el
+(global-set-key (kbd "C-c m") 'mc/edit-lines)
+
+;;helm-swoop
+;;https://github.com/ShingoFukuyama/helm-swoop
 
 ;; magit configuration
 ;; for windows run: git config --global credential.helper wincred
@@ -159,7 +169,7 @@
 	 (ditaa . t)
    ))
 
-
+(setq org-confirm-babel-evaluate nil)
 ;; disable backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)
