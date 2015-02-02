@@ -46,11 +46,14 @@
 (package-initialize)
 
 ;; install all the libs used if they aren't already there
-(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window logstash-conf multiple-cursors helm-swoop))
+(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop))
   (unless (package-installed-p lib) (progn
 				      (package-refresh-contents)
 				      (package-install lib) )))
 
+
+;; publishing mode
+(load "~/.emacs.d/elisp/orgpub.el")
 
 ;; Make sure all buffers save with unix line endings and not ^m
 (prefer-coding-system 'utf-8-unix)
