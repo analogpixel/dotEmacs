@@ -121,7 +121,7 @@
 (delete-selection-mode 1)
 
 ;; toggle case
-(global-set-key (kbd "C-`") 'toggleCase)
+(global-set-key (kbd "C-2") 'toggleCase)
 (global-set-key (kbd "C-1") 'toggleCaseWord)
 
 ;; Align characters
@@ -172,7 +172,12 @@
 	 (ditaa . t)
    ))
 
-(setq org-confirm-babel-evaluate nil)
+(setq org-confirm-babel-evaluate nil)  ;; don't ask to run code blocks
+
+(setq org-babel-default-header-args
+           (cons '(:mkdirp . "yes")
+                 (assq-delete-all :noweb org-babel-default-header-args)))
+
 ;; disable backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)

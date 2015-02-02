@@ -36,7 +36,7 @@
 				 :sitemap-title "Archive"
 				 :sitemap-sort-files anti-chronologically
 				 :sitemap-style list
-				 :makeindex t
+				 :makeindex nil
 				 )
 
 
