@@ -5,6 +5,7 @@
 
 ;; load paths
 (load "~/.emacs.d/elisp/toggleCase.el")
+(load "~/.emacs.d/elisp/any-ini-mode.el")
 ;; (load "~/.emacs.d/elisp/lineup.el")
 
 
@@ -28,6 +29,7 @@
 	(setq processing-location "c:/bin/processing-2.2.1/processing-java.exe")
 	(setq processing-application-dir "c:/bin/processing-2.2.1")
 	(setq processing-sketchbook-dir "c:/data/processingSketches")
+	(setq org-babel-sh-command "cmd /k")
 	)
 
 (cond ((string= system-type "windows-nt") (configureWindows))
@@ -46,7 +48,7 @@
 (package-initialize)
 
 ;; install all the libs used if they aren't already there
-(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop))
+(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop ))
   (unless (package-installed-p lib) (progn
 				      (package-refresh-contents)
 				      (package-install lib) )))
@@ -108,6 +110,8 @@
       (interactive)
       (switch-to-buffer (other-buffer (current-buffer) 1)))
 (global-set-key (kbd "<f2>")   'switch-to-previous-buffer)
+
+(global-set-key (kbd "<f5>") 'align-regexp )
 
 (custom-set-variables
  '(custom-enabled-themes (quote (wombat)))
@@ -237,3 +241,9 @@
 (setq-default fill-column 80  whitespace-line-column 80)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq show-paren-style 'parenthesis)
+
+;; enable workgroups2
+;; C-c z
+;; c: create a: rename k: kill v: switch C-s: save C-f: load
+;; (workgroups-mode 1)
+;; (global-set-key (kbd "C-c C-\\")         'wg-switch-to-previous-workgroup)
