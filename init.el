@@ -48,7 +48,7 @@
 (package-initialize)
 
 ;; install all the libs used if they aren't already there
-(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop ))
+(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode ))
   (unless (package-installed-p lib) (progn
 				      (package-refresh-contents)
 				      (package-install lib) )))
@@ -75,6 +75,7 @@
 
 ;; multiple cursors setup
 ;; https://github.com/magnars/multiple-cursors.el
+;; mark a rectangular region with C-x space and then C-c m to edit it
 (global-set-key (kbd "C-c m") 'mc/edit-lines)
 
 ;;helm-swoop
