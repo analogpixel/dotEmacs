@@ -1,0 +1,11 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: cron
+# key: cron
+# binding: direct-keybinding
+# --
+cron {"$1":
+		 command => "$2",
+		 user    => root,
+		 hour    => $3,
+		 minute  => $4,
+		 }
