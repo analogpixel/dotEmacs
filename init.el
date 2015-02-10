@@ -48,7 +48,7 @@
 (package-initialize)
 
 ;; install all the libs used if they aren't already there
-(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode ))
+(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode jedi ))
   (unless (package-installed-p lib) (progn
 				      (package-refresh-contents)
 				      (package-install lib) )))
@@ -69,6 +69,14 @@
 (global-set-key (kbd "C-,") 'delete-backward-char)
 (global-set-key (kbd "M-,") 'backward-kill-word)
 ;; C-Delete delete word forwards
+
+;; Python stuff
+;; pip install epc
+;; pip install virtualenv
+;; pip install jedi
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:setup-keys t)
+(setq jedi:complete-on-dot t)
 
 ;; Logstash conf mode configuration
 (setq logstash-indent 2)
