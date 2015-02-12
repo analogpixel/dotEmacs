@@ -42,8 +42,9 @@
 ;; load the package system so we can get new packages
 (require 'package)
 (setq package-archives  '( ("melpa" . "http://melpa.org/packages/")
-                            ("org" . "http://orgmode.org/elpa/")
-														))
+													 ("org" . "http://orgmode.org/elpa/")
+													 ("gnu" . "http://elpa.gnu.org/packages/")
+													 ))
 
 (package-initialize)
 
