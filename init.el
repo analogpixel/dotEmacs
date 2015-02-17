@@ -188,9 +188,12 @@
 
 (setq org-confirm-babel-evaluate nil)  ;; don't ask to run code blocks
 
-(setq org-babel-default-header-args
-           (cons '(:mkdirp . "yes")
-                 (assq-delete-all :noweb org-babel-default-header-args)))
+;; create directories if they don't exist when you tangle
+(setq org-babel-default-header-args (cons '(:mkdirp . "yes")  (assq-delete-all :mkdirp org-babel-default-header-args)))
+
+;; don't add a new line at the begining of each file when you tangle
+(setq org-babel-default-header-args (cons '(:padline . "no") (assq-delete-all :padline org-babel-default-header-args)))
+
 
 ;; disable backups
 (setq make-backup-files nil)
