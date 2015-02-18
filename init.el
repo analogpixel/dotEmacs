@@ -105,6 +105,8 @@
 (add-hook 'cider-mode-hook #'paredit-mode)
 (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'cider-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 
 ;; Various keyboard bindings
 (global-set-key (kbd "<end>")   (## (end-of-buffer)))
@@ -114,6 +116,9 @@
 (global-set-key (kbd "<f12>")  'bookmark-jump)
 (global-set-key (kbd "<f11>")  'bookmark-set)
 (global-set-key (kbd "<f1>")   'flyspell-buffer)
+
+(setq rainbow-delimiters-depth-1-face '((t (:foreground, purple))))
+(setq rainbow-delimiters-depth-2-face '((t (:foreground, blue))))
 
 
 (setq auto-revert-verbose nil)
@@ -133,6 +138,24 @@
  '(truncate-lines nil)
  '(coffee-tab-width 2)
  )
+
+
+;; Configure actual rainbow parens with rainbow mode
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(rainbow-delimiters-depth-1-face ((((background dark)) (:foreground "purple"))))
+ '(rainbow-delimiters-depth-2-face ((((background dark)) (:foreground "orange"))))
+ '(rainbow-delimiters-depth-3-face ((((background dark)) (:foreground "darkcyan"))))
+ '(rainbow-delimiters-depth-4-face ((((background dark)) (:foreground "red"))))
+ '(rainbow-delimiters-depth-5-face ((((background dark)) (:foreground "yellow"))))
+ '(rainbow-delimiters-depth-6-face ((((background dark)) (:foreground "brown"))))
+ '(rainbow-delimiters-depth-7-face ((((background dark)) (:foreground "darkgreen"))))
+ '(rainbow-delimiters-depth-8-face ((((background dark)) (:foreground "blue"))))
+ '(rainbow-delimiters-depth-9-face ((((background dark)) (:foreground "red"))))
+ '(tooltip ((t (:background "white" :foreground "blue" :foundry "fixed")))))
 
 ;; when you highlight text, and type it'll delete it
 (delete-selection-mode 1)
@@ -257,6 +280,21 @@
 (setq-default fill-column 80  whitespace-line-column 80)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq show-paren-style 'parenthesis)
+
+
+(defun transpose-windows (arg)
+   "Transpose the buffers shown in two windows."
+   (interactive "p")
+   (let ((selector (if (>= arg 0) 'next-window 'previous-window)))
+     (while (/= arg 0)
+       (let ((this-win (window-buffer))
+             (next-win (window-buffer (funcall selector))))
+         (set-window-buffer (selected-window) next-win)
+         (set-window-buffer (funcall selector) this-win)
+         (select-window (funcall selector)))
+       (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
+
+(global-set-key (kbd "C-c C-t") 'transpose-windows)
 
 ;; enable workgroups2
 ;; C-c z
