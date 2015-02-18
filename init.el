@@ -23,6 +23,10 @@
 	;(add-to-list 'exec-path "C:/Program Files (x86)/Git/bin")
 	(setq gnugo-program "C:/bin/gnugo-3.8/gnugo.exe")
 
+	(global-set-key (kbd "C-x C-f")  (lambda () (interactive)
+                                     (cd "c:/data/d/")
+                                     (call-interactively 'find-file)))
+
 	;; configure aspell to work
 	;; spelling
 	;; http://www.johndcook.com/blog/emacs_windows/#aspell
