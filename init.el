@@ -10,7 +10,9 @@
 
 
 ;; Configure per-OS stuff here
-(defun configureLinux () )
+(defun configureLinux ()
+	(setq tram-default-method "ssh")
+	)
 
 (defun configureMac   () )
 
@@ -30,6 +32,7 @@
 	(setq processing-application-dir "c:/bin/processing-2.2.1")
 	(setq processing-sketchbook-dir "c:/data/processingSketches")
 	(setq org-babel-sh-command "cmd /k")
+	(setq tramp-default-method "pscp")
 	)
 
 (cond ((string= system-type "windows-nt") (configureWindows))
@@ -38,7 +41,7 @@
 			)
 
 
-
+(getenv "PATH")
 ;; load the package system so we can get new packages
 (require 'package)
 (setq package-archives  '( ("melpa" . "http://melpa.org/packages/")
