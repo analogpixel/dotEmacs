@@ -45,7 +45,10 @@
 			)
 
 
-(getenv "PATH")
+;; try to get emacs to split new windows vertially instead of horizontaly
+(setq split-height-threshold nil)
+(setq split-width-threshold 0)
+
 ;; load the package system so we can get new packages
 (require 'package)
 (setq package-archives  '( ("melpa" . "http://melpa.org/packages/")
