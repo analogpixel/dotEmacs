@@ -301,7 +301,7 @@
          (select-window (funcall selector)))
        (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
 
-(global-set-key (kbd "C-c C-t") 'transpose-windows)
+(global-set-key (kbd "M-t") 'transpose-windows)
 
 ;; enable workgroups2
 ;; C-c z

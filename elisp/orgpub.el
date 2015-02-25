@@ -10,9 +10,9 @@
       '(
 
 				("publish-analog"
-				 :base-directory "c:/users/analog/dropbox/public/static/org/"
+				 :base-directory "c:/data/analogPixelorg/org/"
 				 :base-extension "org"
-				 :publishing-directory "c:/users/analog/dropbox/public/static/html"
+				 :publishing-directory "c:/data/analogPixelorg/html/"
 				 :recursive t
 				 :publishing-function org-html-publish-to-html
 				 :headline-levels 6
@@ -32,5 +32,6 @@
 				 :auto-index nil
 				 :makeindex nil
 				 :body-only t  ;; only export the body, don't add a header or footer
+				 :html-extension "htm"
 				 )
 				))
