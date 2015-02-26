@@ -206,6 +206,7 @@
 (setq org-log-done t) ;; when you close a task it time stampes it
 (setq org-list-allow-alphabetical t)
 (setq org-timestamp-translate t)
+(setq org-startup-with-inline-images t)
 
 ;; active Babel languages
 (org-babel-do-load-languages
