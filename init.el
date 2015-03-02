@@ -202,6 +202,7 @@
 
 (require 'ox-md)
 (require 'ox-odt)
+(setq org-edit-src-auto-save-idle-delay 1)
 (setq org-startup-folded "showall")
 (setq org-log-done t) ;; when you close a task it time stampes it
 (setq org-list-allow-alphabetical t)
@@ -209,6 +210,17 @@
 (setq org-startup-with-inline-images t)
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
+
+;; When in a tangle buffer edit, save the file, and tangle it
+(defun saveAndTangle ()
+	(interactive)
+	(org-edit-src-save)
+	(switch-to-buffer (other-buffer (current-buffer) 1))
+	(org-babel-tangle)
+	(switch-to-buffer (other-buffer (current-buffer) 1))
+	)
+
+(global-set-key (kbd "C-c t") 'saveAndTangle)
 
 ;; active Babel languages
 (org-babel-do-load-languages
