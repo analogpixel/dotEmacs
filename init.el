@@ -59,7 +59,7 @@
 (package-initialize)
 
 ;; install all the libs used if they aren't already there
-(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode jedi web-mode ))
+(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode jedi web-mode org-download ))
   (unless (package-installed-p lib) (progn
 				      (package-refresh-contents)
 				      (package-install lib) )))
@@ -207,6 +207,8 @@
 (setq org-list-allow-alphabetical t)
 (setq org-timestamp-translate t)
 (setq org-startup-with-inline-images t)
+(setq org-src-fontify-natively t)
+(setq org-src-tab-acts-natively t)
 
 ;; active Babel languages
 (org-babel-do-load-languages
