@@ -285,11 +285,15 @@
 (global-set-key (kbd "C-x b")       'helm-buffers-list)
 (global-set-key (kbd "C-x C-b")     'helm-buffers-list)
 (global-set-key (kbd "C-x C-f")     'helm-find-files)
-(global-set-key (kbd "C-; C-f")         'helm-occur)
-(global-set-key (kbd "C-c C-c")   'helm-colors)
+(global-set-key (kbd "C-; C-f")     'helm-occur)
+(global-set-key (kbd "C-c C-c")			'helm-colors)
 (global-set-key (kbd "C-c alc")     'helm-calcul-expression)
-(setq helm-buffers-fuzzy-matching t)
+(global-set-key (kbd "C-c h")				'helm-command-prefix)
+(define-key helm-map (kbd "<tab>")	'helm-execute-persistent-action) ; rebind tab to do persistent action
+(define-key helm-map (kbd "C-i")		'helm-execute-persistent-action) ; make TAB works in terminal
+(define-key helm-map (kbd "C-z")		'helm-select-action) ; list actions using C-z
 
+(setq helm-buffers-fuzzy-matching t)
 
 (global-visual-line-mode 1)
 (setq-default fill-column 80  whitespace-line-column 80)
