@@ -23,10 +23,6 @@
 	;(add-to-list 'exec-path "C:/Program Files (x86)/Git/bin")
 	(setq gnugo-program "C:/bin/gnugo-3.8/gnugo.exe")
 
-	(global-set-key (kbd "C-x C-f")  (lambda () (interactive)
-                                     (cd "c:/data/d/")
-                                     (call-interactively 'find-file)))
-
 	;; configure aspell to work
 	;; spelling
 	;; http://www.johndcook.com/blog/emacs_windows/#aspell
@@ -171,11 +167,8 @@
 (global-set-key (kbd "C-2") 'toggleCase)
 (global-set-key (kbd "C-1") 'toggleCaseWord)
 
-;; Align characters
-(global-set-key (kbd "C-+") 'lineup)
-
 ;; set the windows size
-(when window-system (set-frame-size (selected-frame) 150 50))
+;; (when window-system (set-frame-size (selected-frame) 150 50))
 
 ;; show me where my parens don't add up
 (show-paren-mode t)
@@ -321,5 +314,5 @@
 ;; enable workgroups2
 ;; C-c z
 ;; c: create a: rename k: kill v: switch C-s: save C-f: load
-;; (workgroups-mode 1)
-;; (global-set-key (kbd "C-c C-\\")         'wg-switch-to-previous-workgroup)
+(workgroups-mode 1)
+(global-set-key (kbd "C-c C-\\")         'wg-switch-to-previous-workgroup)
