@@ -41,6 +41,11 @@
 			)
 
 
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
+
 ;; try to get emacs to split new windows vertially instead of horizontaly
 (setq split-height-threshold nil)
 (setq split-width-threshold 0)
@@ -214,6 +219,7 @@
 	)
 
 (global-set-key (kbd "C-c t") 'saveAndTangle)
+(global-set-key (kbd "C-c C-t") 'saveAndTangle)
 
 ;; active Babel languages
 (org-babel-do-load-languages
