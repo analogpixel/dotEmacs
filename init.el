@@ -119,8 +119,8 @@
 (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 
 ;; Various keyboard bindings
-(global-set-key (kbd "<end>")   (## (end-of-buffer)))
-(global-set-key (kbd "<home>")  (## (beginning-of-buffer)))
+(global-set-key (kbd "<M-wheel-down>")   (## (end-of-buffer)))
+(global-set-key (kbd "<M-wheel-up>")  (## (beginning-of-buffer)))
 (global-set-key (kbd "C-s")     (## (save-buffer)))
 (global-set-key (kbd "C-x C-s") (## (isearch-forward)))
 (global-set-key (kbd "<f12>")  'bookmark-jump)
