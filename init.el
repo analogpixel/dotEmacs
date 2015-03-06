@@ -45,6 +45,7 @@
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
+(setq mouse-autoselect-window t) ;; buffer/window is selected on hover not click
 
 ;; try to get emacs to split new windows vertially instead of horizontaly
 (setq split-height-threshold nil)
