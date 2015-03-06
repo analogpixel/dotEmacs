@@ -103,6 +103,8 @@
 
 ;; magit configuration
 ;; for windows run: git config --global credential.helper wincred
+(global-set-key (kbd "C-m") 'magit-status)
+
 
 ;; cider configuration
 (setq nrepl-hide-special-buffers t)
