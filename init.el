@@ -103,7 +103,7 @@
 
 ;; magit configuration
 ;; for windows run: git config --global credential.helper wincred
-(global-set-key (kbd "C-m") 'magit-status)
+(global-set-key (kbd "C--") 'magit-status)
 
 
 ;; cider configuration
