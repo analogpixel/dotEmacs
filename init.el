@@ -48,8 +48,8 @@
 (setq mouse-autoselect-window t) ;; buffer/window is selected on hover not click
 
 ;; try to get emacs to split new windows vertially instead of horizontaly
-(setq split-height-threshold nil)
-(setq split-width-threshold 0)
+;; (setq split-height-threshold nil)
+;; (setq split-width-threshold 0)
 
 ;; load the package system so we can get new packages
 (require 'package)
@@ -203,8 +203,8 @@
 
 (require 'ox-md)
 (require 'ox-odt)
-(setq org-edit-src-auto-save-idle-delay 1)
-(setq org-startup-folded "showall")
+;; (setq org-edit-src-auto-save-idle-delay 1) ;;autosave is kind of anoying
+(setq org-startup-folded "showall") ;; don't colapse everythign
 (setq org-log-done t) ;; when you close a task it time stampes it
 (setq org-list-allow-alphabetical t)
 (setq org-timestamp-translate t)

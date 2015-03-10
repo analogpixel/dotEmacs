@@ -1,0 +1,43 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: testing
+# binding: direct-keybinding
+# --
+
+#+HTML_HEAD: <style>pre.src {background-color: #303030; color: #e5e5e5;}</style>
+* Introduction
+  describe the document here
+
+  #+begin_src ditaa :file $1_diagram.png
+
+
+  #+end_src
+
+** Scripts
+   #+begin_src sh :tangle c:/vagrantdir/myvm/manifests/script.sh
+   #!/bin/bash
+   echo "hi"
+
+   #+end_src
+
+** Puppet Code for $1
+   #+begin_src puppet :tangle c:/vagrantdir/myvm/manifests/$1.pp
+   #+end_src
+
+** Vagrant File
+   #+begin_src ruby :tangle c:/vagrantdir/myvm/Vagrantfile
+      Vagrant.configure(2) do |config|
+
+      config.vm.define "$1" do |$1|
+        client1.vm.box_url = "https://dl.dropbox.com/u/14741389/vagrantboxes/lucid64-lamp.box"
+        client1.vm.box = "ubuntu"
+        client1.vm.hostname = "$1"
+        client1.vm.network "private_network", ip: "192.168.3.2"
+        client1.vm."puppet" , manifest_file: "$1.pp"
+      end
+    end
+
+** errors
+   -
+
+** links
+   -
