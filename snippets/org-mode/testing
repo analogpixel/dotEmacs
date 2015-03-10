@@ -29,6 +29,7 @@
         $1.vm."puppet" , manifest_file: "$1.pp"
       end
     end
+   #+end_src
 
 ** errors
    -
