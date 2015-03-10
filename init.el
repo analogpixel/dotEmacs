@@ -210,7 +210,8 @@
 (setq org-timestamp-translate t)
 (setq org-startup-with-inline-images t)
 (setq org-src-fontify-natively t)
-(setq org-src-tab-acts-natively t)
+(setq org-export-with-section-numbers nil)
+;;(setq org-src-tab-acts-natively t)
 
 ;; When in a tangle buffer edit, save the file, and tangle it
 (defun saveAndTangle ()
