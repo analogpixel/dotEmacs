@@ -11,7 +11,7 @@
 
 ;; Configure per-OS stuff here
 (defun configureLinux ()
-	(setq tram-default-method "ssh")
+	(setq tramp-default-method "ssh")
 	)
 
 (defun configureMac   () )
@@ -328,5 +328,5 @@
 ;; enable workgroups2
 ;; C-c z
 ;; c: create a: rename k: kill v: switch C-s: save C-f: load
-(workgroups-mode 1)
-(global-set-key (kbd "C-c C-\\")         'wg-switch-to-previous-workgroup)
+;;(workgroups-mode 1)
+;;(global-set-key (kbd "C-c C-\\")         'wg-switch-to-previous-workgroup)
