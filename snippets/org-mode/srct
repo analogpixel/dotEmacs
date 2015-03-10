@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: srct
+# key: srct
+# --
+#+begin_src ${1:language} :tangle c:/data/$2/
+$0
+#+end_src
