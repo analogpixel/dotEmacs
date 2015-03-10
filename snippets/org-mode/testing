@@ -14,11 +14,11 @@
 ** Scripts
 
 ** Puppet Code for $1
-   #+begin_src puppet :tangle c:/vagrantdir/$2/manifests/$1.pp
+   #+begin_src puppet :tangle c:/data/$2/manifests/$1.pp
    #+end_src
 
 ** Vagrant File
-   #+begin_src ruby :tangle c:/vagrantdir/$2/Vagrantfile
+   #+begin_src ruby :tangle c:/data/$2/Vagrantfile
       Vagrant.configure(2) do |config|
 
       config.vm.define "$1" do |$1|
@@ -26,7 +26,7 @@
         $1.vm.box = "ubuntu"
         $1.vm.hostname = "$1"
         $1.vm.network "private_network", ip: "192.168.3.$3"
-        $1.vm."puppet" , manifest_file: "$1.pp"
+        $1.vm.provision "puppet" , manifest_file: "$1.pp"
       end
     end
    #+end_src
