@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: testing
-# binding: direct-keybinding
+# key: testing
 # --
 
 #+HTML_HEAD: <style>pre.src {background-color: #303030; color: #e5e5e5;}</style>
