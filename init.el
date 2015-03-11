@@ -45,6 +45,9 @@
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 (setq mouse-autoselect-window t) ;; buffer/window is selected on hover not click
 
+;; middle mouse button paste system clipboard
+(global-set-key (kbd "<mouse-2>") 'clipboard-yank)
+
 ;; resize the windows with shift control arrow
 (global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
 (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
