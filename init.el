@@ -45,6 +45,12 @@
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 (setq mouse-autoselect-window t) ;; buffer/window is selected on hover not click
 
+;; resize the windows with shift control arrow
+(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-<down>") 'shrink-window)
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
 ;; try to get emacs to split new windows vertially instead of horizontaly
 ;; (setq split-height-threshold nil)
 ;; (setq split-width-threshold 0)
