@@ -2,7 +2,6 @@
 ;; expands to (lambda () (interactive) (command))
 (defmacro ## (var) (list 'lambda '() '(interactive) var))
 
-
 ;; load paths
 (load "~/.emacs.d/elisp/toggleCase.el")
 (load "~/.emacs.d/elisp/any-ini-mode.el")
