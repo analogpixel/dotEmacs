@@ -250,9 +250,9 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-;;keep a list of recent files history previous
+;; keep a list of recent files history previous
+;; use helm-recentf to list them
 (recentf-mode 1)
-(global-set-key (kbd "<f9>") 'recentf-open-files)
 
 ;;
 ;;ace jump mode major function
@@ -291,6 +291,7 @@
 ;; http://tuhdo.github.io/helm-intro.html
 (helm-mode t)
 (global-set-key (kbd "M-x")         'helm-M-x)
+(global-set-key (kbd "<f9>")        'helm-recentf)
 (global-set-key (kbd "M-y")         'helm-show-kill-ring)
 (global-set-key (kbd "C-x b")       'helm-buffers-list)
 (global-set-key (kbd "C-x C-b")     'helm-buffers-list)
