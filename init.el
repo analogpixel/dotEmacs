@@ -7,7 +7,6 @@
 (load "~/.emacs.d/elisp/any-ini-mode.el")
 ;; (load "~/.emacs.d/elisp/lineup.el")
 
-
 ;; Configure per-OS stuff here
 (defun configureLinux ()
 	(setq tramp-default-method "ssh")
