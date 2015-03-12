@@ -111,7 +111,20 @@
 
 ;; magit configuration
 ;; for windows run: git config --global credential.helper wincred
+;; also for windows .gitconfig needs to move from c:\users\<uid> to
+;; c:\users\<uid>appdata\roaming
 (global-set-key (kbd "C--") 'magit-status)
+(setq magit-commit-all-when-nothing-staged t) ;; stage all unstaged files
+
+;; some day
+;; take currently selection and use it as the commit message
+;; then just set that and push
+;; (defun justpushit ()
+;;   (interactive)
+;; 	(magit-status)
+;; 	(magit-stage-all)
+;; 	(magit-commit)
+;; 	)
 
 
 ;; cider configuration
@@ -219,6 +232,8 @@
 (setq org-src-fontify-natively t)
 (setq org-export-with-section-numbers nil)
 ;;(setq org-src-tab-acts-natively t)
+
+
 
 ;; When in a tangle buffer edit, save the file, and tangle it
 (defun saveAndTangle ()
