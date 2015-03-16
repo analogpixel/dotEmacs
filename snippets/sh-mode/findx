@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: findx
+# key: findx
+# binding: direct-keybinding
+# --
+find $1 -print0 | xargs -P ${maxThreads} -I {} -0  $2
