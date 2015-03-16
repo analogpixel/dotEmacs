@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: ifpass
+# key: ifpass
+# binding: direct-keybinding
+# --
+[ $1 ] && { $2 ; }

@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: iffail
+# key: iffail
+# binding: direct-keybinding
+# --
+[ $1 ] || { $2 ; exit 1; }
