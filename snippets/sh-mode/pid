@@ -1,0 +1,14 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: pid
+# key: pid
+# binding: direct-keybinding
+# --
+if [ -f /var/run/${0}.pid ] ; then
+		pid=`cat /var/run/${0}.pid`
+		if [ -d /proc/${pid} ] ; then
+				echo "Sync already running"
+				exit 3
+    fi
+fi
+
+echo $$ > /var/run/${0}.pid
