@@ -1,0 +1,23 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: hiera
+# key: hiera
+# binding: direct-keybinding
+# --
+** default hiera.yaml
+	 #+begin_src yaml :tangle c:/data/$1/hiera.yaml
+     ---
+     :backends:
+       - yaml
+
+     :hierarchy:
+       - "common"
+
+     :yaml:
+       :datadir: '/vagrant/hiera'
+	 #+end_src
+
+*** common
+    #+begin_src yaml :tangle c:/data/$1/hiera/common.yaml
+      ---
+      var: 'hello'
+		#+end_src
