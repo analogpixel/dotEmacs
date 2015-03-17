@@ -68,7 +68,7 @@
 (package-initialize)
 
 ;; install all the libs used if they aren't already there
-(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode jedi web-mode org-download ))
+(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode jedi web-mode org-download projectile helm-projectile grizzl ))
   (unless (package-installed-p lib) (progn
 				      (package-refresh-contents)
 				      (package-install lib) )))
@@ -84,6 +84,13 @@
 (set-keyboard-coding-system 'utf-8-unix)
 (set-selection-coding-system 'utf-8-unix)
 (setq-default buffer-file-coding-system 'utf-8-unix)
+
+
+;;projecitle configuration
+(projectile-global-mode)
+(setq projectile-enable-caching t)
+(setq projectile-completion-system 'grizzl)
+(global-set-key (kbd "C-c h") 'helm-projectile)
 
 ;; delete backwards
 (global-set-key (kbd "C-,") 'delete-backward-char)
@@ -321,7 +328,6 @@
 (global-set-key (kbd "C-; C-f")     'helm-occur)
 (global-set-key (kbd "C-c C-c")			'helm-colors)
 (global-set-key (kbd "C-c alc")     'helm-calcul-expression)
-(global-set-key (kbd "C-c h")				'helm-command-prefix)
 (define-key helm-map (kbd "<tab>")	'helm-execute-persistent-action) ; rebind tab to do persistent action
 (define-key helm-map (kbd "C-i")		'helm-execute-persistent-action) ; make TAB works in terminal
 (define-key helm-map (kbd "C-z")		'helm-select-action) ; list actions using C-z
