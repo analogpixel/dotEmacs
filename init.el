@@ -38,6 +38,7 @@
 			((string= system-type "darwin")     (configureMac))
 			)
 
+(menu-bar-mode -1) ;; turn off that menu bar
 
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
@@ -88,6 +89,7 @@
 
 ;;projecitle configuration
 (projectile-global-mode)
+(helm-projectile-on)
 (setq projectile-enable-caching t)
 (setq projectile-completion-system 'grizzl)
 (global-set-key (kbd "C-c h") 'helm-projectile)
@@ -170,12 +172,16 @@
 (global-set-key (kbd "<f5>") 'align-regexp )
 
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(coffee-tab-width 2)
  '(custom-enabled-themes (quote (wombat)))
  '(inhibit-startup-screen t)
+ '(magit-diff-options nil)
  '(tool-bar-mode nil)
- '(truncate-lines nil)
- '(coffee-tab-width 2)
- )
+ '(truncate-lines nil))
 
 
 ;; Configure actual rainbow parens with rainbow mode

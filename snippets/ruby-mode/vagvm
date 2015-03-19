@@ -5,9 +5,8 @@
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
 config.vm.define "$1" do |$1|
-  $1.vm.box_url = "https://dl.dropbox.com/u/14741389/vagrantboxes/lucid64-lamp.box"
-	$1.vm.box = "ubuntu"
+	$1.vm.box = "${2:$$(yas-choose-value '("centos6" "centos6min" "ubuntu" "ubuntu14"))}"
 	$1.vm.hostname = "$1"
-	$1.vm.network "private_network", ip: "192.168.7.$2"
+	$1.vm.network "private_network", ip: "192.168.7.$3"
 	$1.vm.provision "puppet" , manifest_file: "$1.pp" $0
 end
