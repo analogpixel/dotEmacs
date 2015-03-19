@@ -69,7 +69,7 @@
 (package-initialize)
 
 ;; install all the libs used if they aren't already there
-(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode jedi web-mode org-download projectile helm-projectile grizzl ))
+(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode jedi web-mode org-download projectile helm-projectile grizzl perspective ))
   (unless (package-installed-p lib) (progn
 				      (package-refresh-contents)
 				      (package-install lib) )))
@@ -365,3 +365,5 @@
 ;; c: create a: rename k: kill v: switch C-s: save C-f: load
 ;;(workgroups-mode 1)
 ;;(global-set-key (kbd "C-c C-\\")         'wg-switch-to-previous-workgroup)
+
+(persp-mode)
