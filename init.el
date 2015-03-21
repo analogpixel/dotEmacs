@@ -69,7 +69,7 @@
 (package-initialize)
 
 ;; install all the libs used if they aren't already there
-(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode jedi web-mode org-download projectile helm-projectile grizzl perspective ))
+(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode jedi web-mode org-download projectile helm-projectile grizzl perspective purpose))
   (unless (package-installed-p lib) (progn
 				      (package-refresh-contents)
 				      (package-install lib) )))
@@ -367,3 +367,11 @@
 ;;(global-set-key (kbd "C-c C-\\")         'wg-switch-to-previous-workgroup)
 
 (persp-mode)
+
+;; https://github.com/bmag/emacs-purpose
+;;(purpose-mode)
+;;(add-to-list 'purpose-user-mode-purposes '(<major-mode> . <purpose>))
+;;(add-to-list 'purpose-user-name-purposes '(<name> . <purpose>))
+;;(add-to-list 'purpose-user-regexp-purposes '(<pattern> . <purpose>))
+;;(setq purpose-use-default-configuration t) ; not really necessary, default is t
+;;(purpose-compile-user-configuration) ; activates your changes
