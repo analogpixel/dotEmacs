@@ -69,7 +69,7 @@
 (package-initialize)
 
 ;; install all the libs used if they aren't already there
-(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode jedi web-mode org-download projectile helm-projectile grizzl perspective purpose))
+(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode jedi web-mode org-download projectile helm-projectile grizzl perspective ))
   (unless (package-installed-p lib) (progn
 				      (package-refresh-contents)
 				      (package-install lib) )))
