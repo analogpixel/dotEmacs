@@ -99,6 +99,9 @@
 (global-set-key (kbd "M-,") 'backward-kill-word)
 ;; C-Delete delete word forwards
 
+(global-set-key (kbd "C-c r") 'remember)
+(global-set-key (kbd "C-c e") 'remember-notes)
+
 ;; Python stuff
 ;; pip install epc
 ;; pip install virtualenv
