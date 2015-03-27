@@ -378,3 +378,7 @@
 ;;(add-to-list 'purpose-user-regexp-purposes '(<pattern> . <purpose>))
 ;;(setq purpose-use-default-configuration t) ; not really necessary, default is t
 ;;(purpose-compile-user-configuration) ; activates your changes
+
+
+;; allow other programs to connect to emacs
+(server-start)
