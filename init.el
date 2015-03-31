@@ -30,7 +30,10 @@
 	(setq processing-application-dir "c:/bin/processing-2.2.1")
 	(setq processing-sketchbook-dir "c:/data/processingSketches")
 	(setq org-babel-sh-command "cmd /k")
-	(setq tramp-default-method "pscp")
+	(set-default 'tramp-auto-save-directory "c:/data/tmp")
+	(set-default 'tramp-default-method "plinkx")
+	(setq password-cache-expiry nil)
+
 	)
 
 (cond ((string= system-type "windows-nt") (configureWindows))
@@ -40,8 +43,8 @@
 
 (menu-bar-mode -1) ;; turn off that menu bar
 
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-scroll-amount '(2 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed 5) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 (setq mouse-autoselect-window t) ;; buffer/window is selected on hover not click
