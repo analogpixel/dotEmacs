@@ -93,15 +93,16 @@
 (key-chord-define-global "ms" 'magit-status)
 (key-chord-define-global "qj" 'cider-jack-in)
 (key-chord-define-global "SS" (## (save-buffer)))
-(key-chord-define-global "QQ" (## (end-of-buffer)))
-(key-chord-define-global "WW" (## (beginning-of-buffer)))
 (key-chord-define-global "UU" 'toggleCase)
 (key-chord-define-global "TT" 'saveAndTangle)
 (key-chord-define-global "TW" 'transpose-windows)
 (key-chord-define-global "PN" 'persp-next)
 (key-chord-define-global "PP" 'persp-prev)
 (key-chord-define-global "PC" 'persp-switch)
-
+(key-chord-define-global "??" 'mark-whole-buffer)
+(key-chord-define-global "EE" 'eval-last-sexp)
+(key-chord-define-global "QQ" 'kill-ring-save)
+(key-chord-define-global "WW" 'yank)
 
 (key-chord-mode 1)
 
