@@ -83,8 +83,9 @@
 
 ;; load up some key chords
 ;; http://www.emacswiki.org/emacs/key-chord.el
-(key-chord-define-global "fe" 'find-file)
+(key-chord-define-global "fe" 'helm-find-files)
 (key-chord-define-global "hj" 'undo)
+(key-chord-define-global "fh" 'delete-backward-char)
 (key-chord-mode 1)
 
 ;; Make sure all buffers save with unix line endings and not ^m
