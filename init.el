@@ -102,8 +102,8 @@
 (key-chord-define-global "??" 'mark-whole-buffer)
 (key-chord-define-global "EE" 'eval-last-sexp)
 (key-chord-define-global "QQ" 'kill-ring-save)
-(key-chord-define-global "WW" 'yank)
-
+(key-chord-define-global "WW" 'yank
+)
 (key-chord-mode 1)
 
 ;; Make sure all buffers save with unix line endings and not ^m
@@ -134,9 +134,9 @@
 ;; pip install epc
 ;; pip install virtualenv
 ;; pip install jedi
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:setup-keys t)
-(setq jedi:complete-on-dot t)
+;; (add-hook 'python-mode-hook 'jedi:setup)
+;; (setq jedi:setup-keys t)
+;; (setq jedi:complete-on-dot t)
 
 ;; Logstash conf mode configuration
 (setq logstash-indent 2)
