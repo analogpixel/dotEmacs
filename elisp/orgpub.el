@@ -10,9 +10,9 @@
       '(
 
 				("publish-analog"
-				 :base-directory "c:/data/analogPixelorg/org/"
+				 :base-directory "e:/checkedoutRepos/analogPixelorg/org/"
 				 :base-extension "org"
-				 :publishing-directory "c:/data/analogPixelorg/html/"
+				 :publishing-directory "e:/checkedoutRepos/analogPixelorg/html/"
 				 :recursive t
 				 :publishing-function org-html-publish-to-html
 				 :headline-levels 6

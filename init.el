@@ -83,9 +83,26 @@
 
 ;; load up some key chords
 ;; http://www.emacswiki.org/emacs/key-chord.el
-(key-chord-define-global "fe" 'helm-find-files)
+(key-chord-define-global "FF" 'helm-find-files)
+(key-chord-define-global "BB" 'helm-buffers-list)
 (key-chord-define-global "hj" 'undo)
-(key-chord-define-global "fh" 'delete-backward-char)
+(key-chord-define-global "qb" 'backward-kill-word)
+(key-chord-define-global "qc" 'delete-backward-char)
+(key-chord-define-global "qp" 'helm-projectile)
+(key-chord-define-global "ml" 'mc/edit-lines)
+(key-chord-define-global "ms" 'magit-status)
+(key-chord-define-global "qj" 'cider-jack-in)
+(key-chord-define-global "SS" (## (save-buffer)))
+(key-chord-define-global "qt" (## (end-of-buffer)))
+(key-chord-define-global "qb" (## (beginning-of-buffer)))
+(key-chord-define-global "UU" 'toggleCase)
+(key-chord-define-global "TT" 'saveAndTangle)
+(key-chord-define-global "TW" 'transpose-windows)
+(key-chord-define-global "PN" 'persp-next)
+(key-chord-define-global "PP" 'persp-prev)
+(key-chord-define-global "PC" 'persp-switch)
+
+
 (key-chord-mode 1)
 
 ;; Make sure all buffers save with unix line endings and not ^m
