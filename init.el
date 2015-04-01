@@ -97,7 +97,7 @@
 (key-chord-define-global "TT" 'saveAndTangle)
 (key-chord-define-global "TW" 'transpose-windows)
 (key-chord-define-global "PN" 'persp-next)
-(key-chord-define-global "PP" 'persp-prev)
+(key-chord-define-global "PM" 'persp-prev)
 (key-chord-define-global "PC" 'persp-switch)
 (key-chord-define-global "??" 'mark-whole-buffer)
 (key-chord-define-global "EE" 'eval-last-sexp)
