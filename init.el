@@ -82,34 +82,7 @@
 ;; publishing mode
 (load "~/.emacs.d/elisp/orgpub.el")
 
-;; load up some key chords
-;; http://www.emacswiki.org/emacs/key-chord.el
-(key-chord-define-global "FF" 'helm-find-files)
-(key-chord-define-global "BB" 'helm-buffers-list)
-(key-chord-define-global "hj" 'undo)
-(key-chord-define-global "qb" 'backward-kill-word)
-(key-chord-define-global "qc" 'delete-backward-char)
-(key-chord-define-global "qp" 'helm-projectile)
-(key-chord-define-global "ml" 'mc/edit-lines)
-(key-chord-define-global "MS" 'magit-status)
-(key-chord-define-global "qj" 'cider-jack-in)
-(key-chord-define-global "SS" (## (save-buffer)))
-(key-chord-define-global "UU" 'toggleCase)
-(key-chord-define-global "TT" 'saveAndTangle)
-(key-chord-define-global "TW" 'transpose-windows)
-(key-chord-define-global "PN" 'persp-next)
-(key-chord-define-global "PM" 'persp-prev)
-(key-chord-define-global "PC" 'persp-switch)
-(key-chord-define-global "??" 'mark-whole-buffer)
 
-;; (message "%s" major-mode)
-(key-chord-define emacs-lisp-mode-map  "EE" 'eval-last-sexp)
-;; (key-chord-define cider-mode-map "EE" 'cider-eval-last-sexp)
-
-(key-chord-define-global "QQ" 'kill-ring-save)
-(key-chord-define-global "WW" 'yank
-)
-(key-chord-mode 1)
 
 ;; Make sure all buffers save with unix line endings and not ^m
 (prefer-coding-system 'utf-8-unix)
@@ -415,5 +388,37 @@
 ;;(purpose-compile-user-configuration) ; activates your changes
 
 
+;; load up some key chords
+;; http://www.emacswiki.org/emacs/key-chord.el
+(key-chord-define-global "FF" 'helm-find-files)
+(key-chord-define-global "BB" 'helm-buffers-list)
+(key-chord-define-global "hj" 'undo)
+(key-chord-define-global "qb" 'backward-kill-word)
+(key-chord-define-global "qc" 'delete-backward-char)
+(key-chord-define-global "qp" 'helm-projectile)
+(key-chord-define-global "ml" 'mc/edit-lines)
+(key-chord-define-global "MS" 'magit-status)
+(key-chord-define-global "qj" 'cider-jack-in)
+(key-chord-define-global "SS" (## (save-buffer)))
+(key-chord-define-global "UU" 'toggleCase)
+(key-chord-define-global "TT" 'saveAndTangle)
+(key-chord-define-global "TW" 'transpose-windows)
+(key-chord-define-global "PN" 'persp-next)
+(key-chord-define-global "PM" 'persp-prev)
+(key-chord-define-global "PC" 'persp-switch)
+(key-chord-define-global "??" 'mark-whole-buffer)
+
+;; (message "%s" major-mode)
+(key-chord-define emacs-lisp-mode-map  "EE" 'eval-last-sexp)
+(key-chord-define-global "QQ" 'kill-ring-save)
+(key-chord-define-global "WW" 'yank)
+
+(require 'cider)
+(key-chord-define cider-mode-map "EE" 'cider-eval-last-sexp)
+
+(key-chord-mode 1)
+
+
 ;; allow other programs to connect to emacs
+(require 'server)
 (unless (server-running-p) (server-start))
