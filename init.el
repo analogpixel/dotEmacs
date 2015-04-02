@@ -33,6 +33,7 @@
 	(set-default 'tramp-auto-save-directory "c:/data/tmp")
 	(set-default 'tramp-default-method "plinkx")
 	(setq password-cache-expiry nil)
+	(setenv "JAVA_CMD" "c:/Program Files/Java/jdk1.8.0_40/bin/java.exe" )
 
 	)
 
@@ -103,7 +104,7 @@
 
 ;; (message "%s" major-mode)
 (key-chord-define emacs-lisp-mode-map  "EE" 'eval-last-sexp)
-(key-chord-define cider-mode-map "EE" 'cider-eval-last-sexp)
+;; (key-chord-define cider-mode-map "EE" 'cider-eval-last-sexp)
 
 (key-chord-define-global "QQ" 'kill-ring-save)
 (key-chord-define-global "WW" 'yank
@@ -415,4 +416,4 @@
 
 
 ;; allow other programs to connect to emacs
-(server-start)
+(unless (server-running-p) (server-start))
