@@ -100,7 +100,11 @@
 (key-chord-define-global "PM" 'persp-prev)
 (key-chord-define-global "PC" 'persp-switch)
 (key-chord-define-global "??" 'mark-whole-buffer)
-(key-chord-define-global "EE" 'eval-last-sexp)
+
+;; (message "%s" major-mode)
+(key-chord-define emacs-lisp-mode-map  "EE" 'eval-last-sexp)
+(key-chord-define cider-mode-map "EE" 'cider-eval-last-sexp)
+
 (key-chord-define-global "QQ" 'kill-ring-save)
 (key-chord-define-global "WW" 'yank
 )
