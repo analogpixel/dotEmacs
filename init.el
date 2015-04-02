@@ -371,6 +371,15 @@
 
 (global-set-key (kbd "M-t") 'transpose-windows)
 
+(fset 'quotepaste
+			"\"\C-y\"")
+
+(fset 'saveline
+			"\C-a\C-k\C-y")
+
+(fset 'dupeline
+   [?\C-a ?\C-k ?\C-y return ?\C-y])
+
 ;; enable workgroups2
 ;; C-c z
 ;; c: create a: rename k: kill v: switch C-s: save C-f: load
@@ -416,6 +425,9 @@
 (key-chord-define emacs-lisp-mode-map  "EE" 'eval-last-sexp)
 (key-chord-define-global "QQ" 'kill-ring-save)
 (key-chord-define-global "WW" 'yank)
+(key-chord-define-global "RR" 'quotepaste)
+(key-chord-define-global "AA" 'saveline)
+(key-chord-define-global "DD" 'dupeline)
 
 (require 'cider)
 (key-chord-define cider-mode-map "EE" 'cider-eval-last-sexp)
