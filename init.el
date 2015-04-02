@@ -371,6 +371,12 @@
 
 (global-set-key (kbd "M-t") 'transpose-windows)
 
+
+;; to create a keyboard macro
+;; f3 record f4
+;; name-last-kbd-macro
+;; open init.el
+;; insert-kbd-macro
 (fset 'quotepaste
 			"\"\C-y\"")
 
