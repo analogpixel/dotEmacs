@@ -401,12 +401,16 @@
 (key-chord-define-global "qj" 'cider-jack-in)
 (key-chord-define-global "SS" (## (save-buffer)))
 (key-chord-define-global "UU" 'toggleCase)
-(key-chord-define-global "TT" 'saveAndTangle)
+(key-chord-define-global "ST" 'saveAndTangle)
+(key-chord-define-global "TT" 'org-babel-tangle)
 (key-chord-define-global "TW" 'transpose-windows)
 (key-chord-define-global "PN" 'persp-next)
 (key-chord-define-global "PM" 'persp-prev)
 (key-chord-define-global "PC" 'persp-switch)
 (key-chord-define-global "??" 'mark-whole-buffer)
+(key-chord-define-global "PP" 'gnugo)
+(key-chord-define-global "PK" 'gomoku)
+
 
 ;; (message "%s" major-mode)
 (key-chord-define emacs-lisp-mode-map  "EE" 'eval-last-sexp)
