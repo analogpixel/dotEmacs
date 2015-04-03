@@ -34,7 +34,7 @@
 	(set-default 'tramp-default-method "plinkx")
 	(setq password-cache-expiry nil)
 	(setenv "JAVA_CMD" "c:/Program Files/Java/jdk1.8.0_40/bin/java.exe" )
-
+	(setq scad-command "e:/bin/openscad/openscad.exe")
 	)
 
 (cond ((string= system-type "windows-nt") (configureWindows))
@@ -73,7 +73,7 @@
 (package-initialize)
 
 ;; install all the libs used if they aren't already there
-(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode jedi web-mode org-download projectile helm-projectile grizzl perspective key-chord ))
+(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode jedi web-mode org-download projectile helm-projectile grizzl perspective key-chord scad-mode))
   (unless (package-installed-p lib) (progn
 				      (package-refresh-contents)
 				      (package-install lib) )))
@@ -118,6 +118,8 @@
 
 ;; Logstash conf mode configuration
 (setq logstash-indent 2)
+
+
 
 ;; multiple cursors setup
 ;; https://github.com/magnars/multiple-cursors.el

@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: cube
+# key: c
+# binding: direct-keybinding
+# --
+cube([$1,$2,$3]);
