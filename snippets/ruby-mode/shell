@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: shell
+# key: shell
+# binding: direct-keybinding
+# --
+$1.vm.provision "shell", inline: "$2"
