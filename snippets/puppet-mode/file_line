@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: file_line
+# key: fl
+# binding: direct-keybinding
+# --
+file_line { '$1':
+  path => '$2',
+	line => '$3',
+}
