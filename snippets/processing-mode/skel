@@ -1,0 +1,12 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: skel
+# key: skel
+# binding: direct-keybinding
+# --
+void setup() {
+		 size($1,$2);
+}
+
+void draw() {
+$0
+}

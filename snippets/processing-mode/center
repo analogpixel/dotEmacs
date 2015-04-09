@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: center
+# key: cen
+# binding: direct-keybinding
+# --
+width/2, height/2

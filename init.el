@@ -404,6 +404,11 @@
 ;;(setq purpose-use-default-configuration t) ; not really necessary, default is t
 ;;(purpose-compile-user-configuration) ; activates your changes
 
+(defun procsaverun ()
+	(interactive)
+	(save-buffer)
+	(processing-sketch-run)
+	)
 
 ;; load up some key chords
 ;; http://www.emacswiki.org/emacs/key-chord.el
@@ -437,8 +442,15 @@
 (key-chord-define-global "AA" 'saveline)
 (key-chord-define-global "DD" 'dupeline)
 
+(key-chord-define processing-mode-map "PR" 'procsaverun)
+
 (require 'cider)
 (key-chord-define cider-mode-map "EE" 'cider-eval-last-sexp)
+
+
+
+
+
 
 (key-chord-mode 1)
 
