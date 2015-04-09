@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: puppet stdlib
+# key: stdlib
+# binding: direct-keybinding
+# --
+$1.vm.provision "shell", inline: "puppet module install puppetlabs-stdlib"
