@@ -430,7 +430,7 @@
 (key-chord-define-global "PM" 'persp-prev)
 (key-chord-define-global "PC" 'persp-switch)
 (key-chord-define-global "??" 'mark-whole-buffer)
-(key-chord-define-global "PP" 'gnugo)
+(key-chord-define-global "PG" 'gnugo)
 (key-chord-define-global "PK" 'gomoku)
 
 
@@ -442,7 +442,8 @@
 (key-chord-define-global "AA" 'saveline)
 (key-chord-define-global "DD" 'dupeline)
 
-(key-chord-define processing-mode-map "PR" 'procsaverun)
+(add-hook 'processing-mode-hook (##
+(key-chord-define processing-mode-map "PR" 'procsaverun)))
 
 (require 'cider)
 (key-chord-define cider-mode-map "EE" 'cider-eval-last-sexp)
