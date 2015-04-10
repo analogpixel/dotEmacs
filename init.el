@@ -448,12 +448,12 @@
 (require 'cider)
 (key-chord-define cider-mode-map "EE" 'cider-eval-last-sexp)
 
-(key-chord-define-global "Z{" (## ( point-to-register 1)))
-(key-chord-define-global "X{" (## ( jump-to-register 1)))
-(key-chord-define-global "Z}" (## ( point-to-register 2)))
-(key-chord-define-global "X}" (## ( jump-to-register 2)))
-(key-chord-define-global "ZP" (## ( point-to-register 3)))
-(key-chord-define-global "XP" (## ( jump-to-register 3)))
+(key-chord-define-global "z[" (## ( point-to-register 1)))
+(key-chord-define-global "x[" (## ( jump-to-register 1)))
+(key-chord-define-global "z]" (## ( point-to-register 2)))
+(key-chord-define-global "x]" (## ( jump-to-register 2)))
+(key-chord-define-global "z'" (## ( point-to-register 3)))
+(key-chord-define-global "x'" (## ( jump-to-register 3)))
 
 (key-chord-mode 1)
 
