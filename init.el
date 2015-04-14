@@ -462,5 +462,5 @@
 ;; allow other programs to connect to emacs
 (require 'server)
 ;; don't ask if i'm sure when closing a buffer
-(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 (unless (server-running-p) (server-start))
+(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
