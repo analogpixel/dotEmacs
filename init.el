@@ -272,6 +272,7 @@
 
 (global-set-key (kbd "C-c t") 'saveAndTangle)
 (global-set-key (kbd "C-c C-t") 'saveAndTangle)
+(global-set-key (kbd "M-<f4>") 'org-babel-tangle) ;; wtf right?
 
 ;; active Babel languages
 (org-babel-do-load-languages
