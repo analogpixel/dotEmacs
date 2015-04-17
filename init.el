@@ -164,8 +164,11 @@
 ;; Various keyboard bindings
 (global-set-key (kbd "<M-wheel-down>")   (## (end-of-buffer)))
 (global-set-key (kbd "<M-wheel-up>")  (## (beginning-of-buffer)))
-(global-set-key (kbd "C-s")     (## (save-buffer)))
-(global-set-key (kbd "C-x C-s") (## (isearch-forward)))
+
+;; replaced with SS
+;;(global-set-key (kbd "C-s")     (## (save-buffer)))
+
+;; (global-set-key (kbd "C-x C-s") (## (isearch-forward)))
 (global-set-key (kbd "<f12>")  'bookmark-jump)
 (global-set-key (kbd "<f11>")  'bookmark-set)
 (global-set-key (kbd "<f1>")   'flyspell-buffer)
