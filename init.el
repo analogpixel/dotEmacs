@@ -35,6 +35,9 @@
 	(setq password-cache-expiry nil)
 	(setenv "JAVA_CMD" "c:/Program Files/Java/jdk1.8.0_40/bin/java.exe" )
 	(setq scad-command "e:/bin/openscad/openscad.exe")
+
+	(setenv "PATH" (concat "E:/bin/PortableApps/SWI-PrologPortable/App/SWI-Prolog/bin" ";" (getenv "PATH")))
+	(setq exec-path (append exec-path '("E:/bin/PortableApps/SWI-PrologPortable/App/SWI-Prolog/bin")))
 	)
 
 (cond ((string= system-type "windows-nt") (configureWindows))
@@ -127,6 +130,7 @@
 (setq auto-mode-alist (append '(("\\.pl$" . prolog-mode)
                                 ("\\.m$" . mercury-mode))
                                auto-mode-alist))
+
 
 ;; multiple cursors setup
 ;; https://github.com/magnars/multiple-cursors.el
