@@ -1,0 +1,18 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: skel
+# key: skel
+# binding: direct-keybinding
+# --
+<html>
+	<head>
+		<style>
+
+		</style>
+
+		<script>
+		</script>
+	</head>
+
+	<body>
+	</body>
+</html>
