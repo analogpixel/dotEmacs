@@ -433,7 +433,7 @@
 (key-chord-define-global "qb" 'backward-kill-word)
 (key-chord-define-global "qc" 'delete-backward-char)
 (key-chord-define-global "qp" 'helm-projectile)
-(key-chord-define-global "ml" 'mc/edit-lines)
+(key-chord-define-global "ML" 'mc/edit-lines)
 (key-chord-define-global "MS" 'magit-status)
 (key-chord-define-global "qj" 'cider-jack-in)
 (key-chord-define-global "SS" (## (save-buffer)))
