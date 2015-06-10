@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: getel
+# key: getel
+# binding: direct-keybinding
+# --
+document.getElementById($0);
