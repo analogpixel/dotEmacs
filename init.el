@@ -472,7 +472,7 @@
 
 (key-chord-mode 1)
 
-
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 ;; allow other programs to connect to emacs
 (require 'server)
