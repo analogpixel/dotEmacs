@@ -447,6 +447,7 @@
 (key-chord-define-global "??" 'mark-whole-buffer)
 (key-chord-define-global "PG" 'gnugo)
 (key-chord-define-global "PK" 'gomoku)
+(key-chord-define-global "GG" 'goto-line)
 
 
 ;; (message "%s" major-mode)
