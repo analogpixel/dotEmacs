@@ -69,6 +69,7 @@
 ;; load the package system so we can get new packages
 (require 'package)
 (setq package-archives  '( ("melpa" . "http://melpa.org/packages/")
+													 ("marmalade" . "https://marmalade-repo.org/packages/")
 													 ("org" . "http://orgmode.org/elpa/")
 													 ("gnu" . "http://elpa.gnu.org/packages/")
 													 ))
