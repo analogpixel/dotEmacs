@@ -1,0 +1,14 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: user
+# key: user
+# binding: direct-keybinding
+# --
+user { '$1':
+  ensure         => present,
+  purge_ssh_keys => true,
+  password       => '*',
+  managehome     => true,
+  password_max_age => 9999,
+  password_min_age => 9999,
+  home             => '/home/$1',
+}$0

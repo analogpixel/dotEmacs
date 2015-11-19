@@ -5,7 +5,14 @@
 ;; load paths
 (load "~/.emacs.d/elisp/toggleCase.el")
 (load "~/.emacs.d/elisp/any-ini-mode.el")
-;; (load "~/.emacs.d/elisp/lineup.el")
+
+;; Make sure all buffers save with unix line endings and not ^m
+(prefer-coding-system 'utf-8-unix)
+(set-default-coding-systems 'utf-8-unix)
+(set-terminal-coding-system 'utf-8-unix)
+(set-keyboard-coding-system 'utf-8-unix)
+(set-selection-coding-system 'utf-8-unix)
+(setq-default buffer-file-coding-system 'utf-8-unix)
 
 ;; Configure per-OS stuff here
 (defun configureLinux ()
@@ -33,7 +40,7 @@
 	(set-default 'tramp-auto-save-directory "c:/data/tmp")
 	(set-default 'tramp-default-method "plinkx")
 	(setq password-cache-expiry nil)
-	(setenv "JAVA_CMD" "c:/Program Files/Java/jdk1.8.0_40/bin/java.exe" )
+	(setenv "JAVA_CMD" "c:/Program Files/Java/jdk1.8.0_65/bin/java.exe" )
 	(setq scad-command "e:/bin/openscad/openscad.exe")
 
 	(setenv "PATH" (concat "E:/bin/PortableApps/SWI-PrologPortable/App/SWI-Prolog/bin" ";" (getenv "PATH")))
@@ -62,10 +69,6 @@
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
-;; try to get emacs to split new windows vertially instead of horizontaly
-;; (setq split-height-threshold nil)
-;; (setq split-width-threshold 0)
-
 ;; load the package system so we can get new packages
 (require 'package)
 (setq package-archives  '( ("melpa" . "http://melpa.org/packages/")
@@ -88,13 +91,7 @@
 
 
 
-;; Make sure all buffers save with unix line endings and not ^m
-(prefer-coding-system 'utf-8-unix)
-(set-default-coding-systems 'utf-8-unix)
-(set-terminal-coding-system 'utf-8-unix)
-(set-keyboard-coding-system 'utf-8-unix)
-(set-selection-coding-system 'utf-8-unix)
-(setq-default buffer-file-coding-system 'utf-8-unix)
+
 
 
 ;;projecitle configuration
