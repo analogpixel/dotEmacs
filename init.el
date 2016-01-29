@@ -6,6 +6,11 @@
 (load "~/.emacs.d/elisp/toggleCase.el")
 (load "~/.emacs.d/elisp/any-ini-mode.el")
 
+;; startup python jedi mode stuff
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+
+
 ;; Make sure all buffers save with unix line endings and not ^m
 (prefer-coding-system 'utf-8-unix)
 (set-default-coding-systems 'utf-8-unix)
@@ -69,53 +74,24 @@
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
+(package-initialize)
+
 ;; load the package system so we can get new packages
 (require 'package)
+
+
 (setq package-archives  '( ("melpa" . "http://melpa.org/packages/")
 													 ("marmalade" . "https://marmalade-repo.org/packages/")
 													 ("org" . "http://orgmode.org/elpa/")
 													 ("gnu" . "http://elpa.gnu.org/packages/")
 													 ))
 
-(package-initialize)
-
 ;; install all the libs used if they aren't already there
-(dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region quickrun yasnippet helm gnugo rainbow-delimiters paredit company processing-mode ace-window htmlize logstash-conf multiple-cursors helm-swoop yaml-mode jedi web-mode org-download projectile helm-projectile grizzl perspective key-chord scad-mode))
-  (unless (package-installed-p lib) (progn
-				      (package-refresh-contents)
-				      (package-install lib) )))
+;; (dolist (lib '(puppet-mode cider ace-jump-mode magit expand-region  yasnippet helm gnugo rainbow-delimiters paredit  processing-mode ace-window htmlize logstash-conf multiple-cursors   yaml-mode web-mode org-download key-chord scad-mode))
+;;   (unless (package-installed-p lib) (progn
+;; 																			(package-refresh-contents)
+;; 																			(package-install lib) )))
 
-
-;; publishing mode
-(load "~/.emacs.d/elisp/orgpub.el")
-
-
-
-
-
-
-;;projecitle configuration
-(projectile-global-mode)
-(helm-projectile-on)
-(setq projectile-enable-caching t)
-(setq projectile-completion-system 'grizzl)
-(global-set-key (kbd "C-c h") 'helm-projectile)
-
-;; delete backwards
-(global-set-key (kbd "C-,") 'delete-backward-char)
-(global-set-key (kbd "M-,") 'backward-kill-word)
-;; C-Delete delete word forwards
-
-(global-set-key (kbd "C-c r") 'remember)
-(global-set-key (kbd "C-c e") 'remember-notes)
-
-;; Python stuff
-;; pip install epc
-;; pip install virtualenv
-;; pip install jedi
-;; (add-hook 'python-mode-hook 'jedi:setup)
-;; (setq jedi:setup-keys t)
-;; (setq jedi:complete-on-dot t)
 
 ;; Logstash conf mode configuration
 (setq logstash-indent 2)
@@ -135,26 +111,12 @@
 ;; mark a rectangular region with C-x space and then C-c m to edit it
 (global-set-key (kbd "C-c m") 'mc/edit-lines)
 
-;;helm-swoop
-;;https://github.com/ShingoFukuyama/helm-swoop
-
 ;; magit configuration
 ;; for windows run: git config --global credential.helper wincred
 ;; also for windows .gitconfig needs to move from c:\users\<uid> to
 ;; c:\users\<uid>appdata\roaming
 (global-set-key (kbd "C--") 'magit-status)
 (setq magit-commit-all-when-nothing-staged t) ;; stage all unstaged files
-
-;; some day
-;; take currently selection and use it as the commit message
-;; then just set that and push
-;; (defun justpushit ()
-;;   (interactive)
-;; 	(magit-status)
-;; 	(magit-stage-all)
-;; 	(magit-commit)
-;; 	)
-
 
 ;; cider configuration
 (setq nrepl-hide-special-buffers t)
@@ -177,9 +139,6 @@
 (global-set-key (kbd "<M-wheel-down>")   (## (end-of-buffer)))
 (global-set-key (kbd "<M-wheel-up>")  (## (beginning-of-buffer)))
 
-;; replaced with SS
-;;(global-set-key (kbd "C-s")     (## (save-buffer)))
-
 ;; (global-set-key (kbd "C-x C-s") (## (isearch-forward)))
 (global-set-key (kbd "<f12>")  'bookmark-jump)
 (global-set-key (kbd "<f11>")  'bookmark-set)
@@ -188,9 +147,7 @@
 (setq rainbow-delimiters-depth-1-face '((t (:foreground, purple))))
 (setq rainbow-delimiters-depth-2-face '((t (:foreground, blue))))
 
-
 (setq auto-revert-verbose nil)
-
 
 (defun switch-to-previous-buffer ()
       (interactive)
@@ -263,7 +220,6 @@
 ;; http://lists.gnu.org/archive/html/emacs-orgmode/2011-02/msg00465.html
 
 (require 'ox-md)
-(require 'ox-odt)
 ;; (setq org-edit-src-auto-save-idle-delay 1) ;;autosave is kind of anoying
 (setq org-startup-folded "showall") ;; don't colapse everythign
 (setq org-log-done t) ;; when you close a task it time stampes it
@@ -409,16 +365,6 @@
 ;; c: create a: rename k: kill v: switch C-s: save C-f: load
 ;;(workgroups-mode 1)
 ;;(global-set-key (kbd "C-c C-\\")         'wg-switch-to-previous-workgroup)
-
-(persp-mode)
-
-;; https://github.com/bmag/emacs-purpose
-;;(purpose-mode)
-;;(add-to-list 'purpose-user-mode-purposes '(<major-mode> . <purpose>))
-;;(add-to-list 'purpose-user-name-purposes '(<name> . <purpose>))
-;;(add-to-list 'purpose-user-regexp-purposes '(<pattern> . <purpose>))
-;;(setq purpose-use-default-configuration t) ; not really necessary, default is t
-;;(purpose-compile-user-configuration) ; activates your changes
 
 (defun procsaverun ()
 	(interactive)

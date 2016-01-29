@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: opts
+# key: opts
+# binding: direct-keybinding
+# --
+parser = optparse.OptionParser()
+parser.add_option("-$1", "--$2", default="$3",  help='$4', dest="$5", action="store")
+parser.add_option("-$6", "--$7", default=False , help='$7', dest="$8", action="store_true")
+(opts, args) = parser.parse_args()
